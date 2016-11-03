@@ -9,7 +9,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.orafaaraujo.rafaarch.R;
-import com.orafaaraujo.rafaarch.entity.Chart;
+import com.orafaaraujo.rafaarch.entity.chart.Chart;
+import com.orafaaraujo.rafaarch.presentation.main.adapter.ChartAdapter;
 
 import java.util.List;
 

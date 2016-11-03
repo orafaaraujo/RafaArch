@@ -1,14 +1,14 @@
-package com.orafaaraujo.rafaarch.presentation.main;
+package com.orafaaraujo.rafaarch.presentation.main.adapter;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.orafaaraujo.rafaarch.R;
-import com.orafaaraujo.rafaarch.entity.Chart;
+import com.orafaaraujo.rafaarch.entity.chart.Chart;
+import com.orafaaraujo.rafaarch.entity.chart.ChartTypes;
 
 import java.util.List;
 
@@ -23,20 +23,24 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
 
     private List<Chart> mCharts;
 
-    ChartAdapter(List<Chart> charts) {
+    public ChartAdapter(List<Chart> charts) {
         mCharts = charts;
     }
 
     @Override
     public ChartAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.chart_item, parent, false));
+        return ChartItemLayoutFactory.getView(ChartTypes.values()[viewType], parent);
     }
 
     @Override
     public void onBindViewHolder(ChartAdapter.ViewHolder holder, int position) {
+
+        switch (holder.getItemViewType()) {
+
+        }
         Chart chart = mCharts.get(position);
         if (chart != null) {
-            holder.title.setText(chart.getName());
+            holder.title.setText(chart.getTitle());
         }
     }
 
@@ -45,7 +49,12 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
         return mCharts != null ? mCharts.size() : 0;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public int getItemViewType(int position) {
+        return mCharts.get(position).getType().getId();
+    }
+
+   public static class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.chart_item_title)
         TextView title;
@@ -53,7 +62,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
         @BindView(R.id.chart_item_chart)
         BarChart barChart;
 
-        ViewHolder(View v) {
+        public ViewHolder(View v) {
             super(v);
             ButterKnife.bind(this, v);
         }
