@@ -15,10 +15,12 @@ import java.util.List;
 
 public class ChartAdapter extends RecyclerView.Adapter<ChartViewHolder> {
 
+    private final ChartClickListener mClickListener;
     private List<Chart> mCharts;
 
-    public ChartAdapter(List<Chart> charts) {
+    public ChartAdapter(List<Chart> charts, ChartClickListener clickListener) {
         mCharts = charts;
+        mClickListener = clickListener;
     }
 
     @Override
@@ -28,7 +30,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartViewHolder> {
 
     @Override
     public void onBindViewHolder(ChartViewHolder holder, int position) {
-        ChartBindValue.bindView(holder, mCharts.get(position));
+        ChartBindValue.bindView(holder, mCharts.get(position), mClickListener);
     }
 
     @Override
@@ -40,5 +42,4 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartViewHolder> {
     public int getItemViewType(int position) {
         return mCharts.get(position).getType().getId();
     }
-
 }

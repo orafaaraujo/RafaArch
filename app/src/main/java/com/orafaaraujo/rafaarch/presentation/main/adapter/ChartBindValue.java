@@ -10,7 +10,7 @@ import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.ChartViewHo
 
 class ChartBindValue {
 
-    static void bindView(ChartViewHolder viewHolder, Chart chart) {
+    static void bindView(ChartViewHolder viewHolder, Chart chart, ChartClickListener clickListener) {
 
         switch (chart.getType()) {
             case COMPARING:
@@ -20,7 +20,7 @@ class ChartBindValue {
             case USAGE_REPORT:
                 break;
             case ENIGINE_TEMPERATURE:
-                EngineTemperatureBinder.getInstance().bind(chart).into(viewHolder);
+                EngineTemperatureBinder.getInstance().bind(chart, clickListener).into(viewHolder);
                 break;
             case ENIGINE_TEMPERATURE_FORECAST:
                 break;

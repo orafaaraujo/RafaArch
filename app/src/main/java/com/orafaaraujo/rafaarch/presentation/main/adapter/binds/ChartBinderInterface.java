@@ -3,6 +3,7 @@ package com.orafaaraujo.rafaarch.presentation.main.adapter.binds;
 import android.support.annotation.NonNull;
 
 import com.orafaaraujo.rafaarch.entity.chart.Chart;
+import com.orafaaraujo.rafaarch.presentation.main.adapter.ChartClickListener;
 import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.ChartViewHolder;
 
 /**
@@ -11,7 +12,7 @@ import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.ChartViewHo
 
 public interface ChartBinderInterface {
 
-    ChartBinderInterface bind(@NonNull Chart chart);
+    ChartBinderInterface bind(@NonNull Chart chart, ChartClickListener clickListener);
 
     ChartBinderInterface into(@NonNull ChartViewHolder viewHolder);
 

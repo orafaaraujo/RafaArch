@@ -1,6 +1,7 @@
 package com.orafaaraujo.rafaarch.presentation.main;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,8 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.google.gson.Gson;
 import com.orafaaraujo.rafaarch.R;
 import com.orafaaraujo.rafaarch.entity.chart.Chart;
+import com.orafaaraujo.rafaarch.presentation.chart.ChartActivity;
 import com.orafaaraujo.rafaarch.presentation.main.adapter.ChartAdapter;
 
 import java.util.List;
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
     ProgressBar mProgressBar;
 
     private MainPresenter mPresenter;
+
+    public static final String CHART_KEY = "CHART_KEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +67,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public void setupRecyclerView(List<Chart> charts) {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(new ChartAdapter(charts));
+        mRecyclerView.setAdapter(new ChartAdapter(charts, chart -> {
+
+            Gson gson = new Gson();
+            Intent intent = new Intent(MainActivity.this, ChartActivity.class);
+            intent.putExtra(CHART_KEY, gson.toJson(chart));
+            startActivity(intent);
+
+        }));
     }
 }
