@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.orafaaraujo.rafaarch.entity.chart.ChartTypes.ENIGINE_TEMPERATURE;
+import static com.orafaaraujo.rafaarch.entity.chart.ChartTypes.OSCILLATION;
 
 /**
  * Created by rafael on 01/11/16.
@@ -25,11 +26,13 @@ public class FetchChartsInteractorImpl implements FetchChartsInteractor {
             public void run() {
                 listener.onFinished(createArrayList());
             }
-        }, 2000);
+        }, 500);
     }
 
     private List<Chart> createArrayList() {
-        return Arrays.asList(new Chart("a", ENIGINE_TEMPERATURE), new Chart("b", ENIGINE_TEMPERATURE), new Chart("c", ENIGINE_TEMPERATURE), new Chart("d", ENIGINE_TEMPERATURE),
-                new Chart("e", ENIGINE_TEMPERATURE), new Chart("f", ENIGINE_TEMPERATURE), new Chart("g", ENIGINE_TEMPERATURE), new Chart("h", ENIGINE_TEMPERATURE));
+        return Arrays.asList(new Chart("a", ENIGINE_TEMPERATURE), new Chart("b", OSCILLATION),
+                new Chart("c", OSCILLATION), new Chart("d", OSCILLATION),
+                new Chart("e", OSCILLATION), new Chart("f", ENIGINE_TEMPERATURE),
+                new Chart("g", OSCILLATION), new Chart("h", OSCILLATION));
     }
 }

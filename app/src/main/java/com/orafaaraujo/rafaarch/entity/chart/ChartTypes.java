@@ -27,7 +27,4 @@ public enum ChartTypes {
         return mId;
     }
 
-    public ChartTypes getEnum(int pos) {
-        return values()[pos];
-    }
 }
