@@ -67,11 +67,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public void setupRecyclerView(List<Chart> charts) {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(new ChartAdapter(charts, chart -> {
+        mRecyclerView.setAdapter(new ChartAdapter(this, charts, chart -> {
 
-            Gson gson = new Gson();
             Intent intent = new Intent(MainActivity.this, ChartActivity.class);
-            intent.putExtra(CHART_KEY, gson.toJson(chart));
+            intent.putExtra(CHART_KEY, new Gson().toJson(chart));
             startActivity(intent);
 
         }));

@@ -8,7 +8,7 @@ import com.orafaaraujo.rafaarch.R;
 import com.orafaaraujo.rafaarch.entity.chart.ChartTypes;
 import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.BlankViewHolder;
 import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.ChartViewHolder;
-import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.EngineTempViewHolder;
+import com.orafaaraujo.rafaarch.presentation.main.adapter.EngineTemperature.EngineTempViewHolder;
 
 /**
  * Created by rafael on 03/11/16.

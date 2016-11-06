@@ -1,5 +1,6 @@
 package com.orafaaraujo.rafaarch.presentation.main.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
@@ -15,10 +16,12 @@ import java.util.List;
 
 public class ChartAdapter extends RecyclerView.Adapter<ChartViewHolder> {
 
+    private final Context mContext;
     private final ChartClickListener mClickListener;
-    private List<Chart> mCharts;
+    private final List<Chart> mCharts;
 
-    public ChartAdapter(List<Chart> charts, ChartClickListener clickListener) {
+    public ChartAdapter(Context context, List<Chart> charts, ChartClickListener clickListener) {
+        mContext = context;
         mCharts = charts;
         mClickListener = clickListener;
     }
@@ -30,7 +33,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartViewHolder> {
 
     @Override
     public void onBindViewHolder(ChartViewHolder holder, int position) {
-        ChartBindValue.bindView(holder, mCharts.get(position), mClickListener);
+        ChartBindValue.bindView(mContext, holder, mCharts.get(position), mClickListener);
     }
 
     @Override

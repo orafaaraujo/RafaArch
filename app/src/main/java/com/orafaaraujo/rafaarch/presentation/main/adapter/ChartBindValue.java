@@ -1,7 +1,9 @@
 package com.orafaaraujo.rafaarch.presentation.main.adapter;
 
+import android.content.Context;
+
 import com.orafaaraujo.rafaarch.entity.chart.Chart;
-import com.orafaaraujo.rafaarch.presentation.main.adapter.binds.EngineTemperatureBinder;
+import com.orafaaraujo.rafaarch.presentation.main.adapter.EngineTemperature.EngineTemperatureBinder;
 import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.ChartViewHolder;
 
 /**
@@ -10,7 +12,7 @@ import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.ChartViewHo
 
 class ChartBindValue {
 
-    static void bindView(ChartViewHolder viewHolder, Chart chart, ChartClickListener clickListener) {
+    static void bindView(Context context, ChartViewHolder viewHolder, Chart chart, ChartClickListener clickListener) {
 
         switch (chart.getType()) {
             case COMPARING:
@@ -20,7 +22,7 @@ class ChartBindValue {
             case USAGE_REPORT:
                 break;
             case ENIGINE_TEMPERATURE:
-                EngineTemperatureBinder.getInstance().bind(chart, clickListener).into(viewHolder);
+                EngineTemperatureBinder.getInstance(context).bind(chart, clickListener).into(viewHolder);
                 break;
             case ENIGINE_TEMPERATURE_FORECAST:
                 break;

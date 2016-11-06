@@ -12,7 +12,7 @@ import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.ChartViewHo
 
 public interface ChartBinderInterface {
 
-    ChartBinderInterface bind(@NonNull Chart chart, ChartClickListener clickListener);
+    ChartBinderInterface bind(@NonNull Chart chart, @NonNull ChartClickListener clickListener);
 
     ChartBinderInterface into(@NonNull ChartViewHolder viewHolder);
 

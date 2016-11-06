@@ -4,13 +4,20 @@
         <item name="android:padding">4dp</item>
     </style>
 
-    <style name="chart_item_title">
+    <style name="chart_item_text">
         <item name="android:ellipsize">end</item>
-        <item name="android:gravity">center_vertical</item>
         <item name="android:paddingStart">8dp</item>
+        <item name="android:gravity">center_vertical</item>
         <item name="android:textColor">@color/text_color</item>
-        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="chart_item_title" parent="chart_item_text">
         <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="chart_item_symbol" parent="chart_item_text">
+        <item name="android:textSize">10sp</item>
     </style>
 
     <style name="chart_item_out_button">
