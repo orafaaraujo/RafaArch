@@ -4,7 +4,7 @@ package com.orafaaraujo.rafaarch.entity.chart;
  * Created by rafael on 01/11/16.
  */
 
-public enum ChartTypes {
+public enum ChartType {
     COMPARING(0),
     COMPARING_BRANDS(1),
     USAGE_REPORT(2),
@@ -19,7 +19,7 @@ public enum ChartTypes {
      */
     private int mId;
 
-    ChartTypes(int id) {
+    ChartType(int id) {
         mId = id;
     }
 

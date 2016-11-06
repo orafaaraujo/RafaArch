@@ -1,4 +1,4 @@
-package com.orafaaraujo.rafaarch.presentation.chartHelper;
+package com.orafaaraujo.rafaarch.presentation.helper.temperature;
 
 import android.graphics.Color;
 

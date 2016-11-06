@@ -1,10 +1,10 @@
-package com.orafaaraujo.rafaarch.presentation.main.adapter;
+package com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter;
 
 import android.content.Context;
 
-import com.orafaaraujo.rafaarch.entity.chart.Chart;
-import com.orafaaraujo.rafaarch.presentation.main.adapter.EngineTemperature.EngineTemperatureBinder;
-import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.ChartViewHolder;
+import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.engineTemperature.EngineTemperatureBinder;
+import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.viewholdes.ChartViewHolder;
 
 /**
  * Created by rafael on 03/11/16.
@@ -12,9 +12,9 @@ import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.ChartViewHo
 
 class ChartBindValue {
 
-    static void bindView(Context context, ChartViewHolder viewHolder, Chart chart, ChartClickListener clickListener) {
+    static void bindView(Context context, ChartViewHolder viewHolder, ChartValue chartValue, ChartClickListener clickListener) {
 
-        switch (chart.getType()) {
+        switch (chartValue.getType()) {
             case COMPARING:
                 break;
             case COMPARING_BRANDS:
@@ -22,7 +22,7 @@ class ChartBindValue {
             case USAGE_REPORT:
                 break;
             case ENIGINE_TEMPERATURE:
-                EngineTemperatureBinder.getInstance(context).bind(chart, clickListener).into(viewHolder);
+                EngineTemperatureBinder.getInstance(context).bind(chartValue, clickListener).into(viewHolder);
                 break;
             case ENIGINE_TEMPERATURE_FORECAST:
                 break;

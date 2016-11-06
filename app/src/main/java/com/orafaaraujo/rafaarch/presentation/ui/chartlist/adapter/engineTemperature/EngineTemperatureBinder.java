@@ -1,4 +1,4 @@
-package com.orafaaraujo.rafaarch.presentation.main.adapter.EngineTemperature;
+package com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.engineTemperature;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -14,12 +14,13 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.jakewharton.rxbinding.view.RxView;
 import com.orafaaraujo.rafaarch.R;
-import com.orafaaraujo.rafaarch.entity.chart.Chart;
-import com.orafaaraujo.rafaarch.presentation.chartHelper.TemperatureBarDataSet;
-import com.orafaaraujo.rafaarch.presentation.chartHelper.TemperatureValueFormatter;
-import com.orafaaraujo.rafaarch.presentation.main.adapter.ChartClickListener;
-import com.orafaaraujo.rafaarch.presentation.main.adapter.binds.ChartBinderInterface;
-import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.ChartViewHolder;
+import com.orafaaraujo.rafaarch.entity.chart.ChartItem;
+import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.presentation.helper.temperature.TemperatureBarDataSet;
+import com.orafaaraujo.rafaarch.presentation.helper.temperature.TemperatureValueFormatter;
+import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.ChartClickListener;
+import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.binds.ChartBinderInterface;
+import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.viewholdes.ChartViewHolder;
 
 import java.util.ArrayList;
 
@@ -29,21 +30,16 @@ import java.util.ArrayList;
 
 public class EngineTemperatureBinder implements ChartBinderInterface {
 
+    private static EngineTemperatureBinder sBinder;
     private final Context mContext;
-
-    private Chart mChartValue;
-
-    private BarChart mChart;
-
+    private ChartValue mChartValue;
+    private BarChart mBarChart;
     private EngineTempViewHolder mViewHolder;
-
     private ChartClickListener mClickListener;
 
     private EngineTemperatureBinder(Context context) {
         mContext = context;
     }
-
-    private static EngineTemperatureBinder sBinder;
 
     public static EngineTemperatureBinder getInstance(Context context) {
         if (sBinder == null) {
@@ -53,16 +49,16 @@ public class EngineTemperatureBinder implements ChartBinderInterface {
     }
 
     @Override
-    public EngineTemperatureBinder bind(@NonNull Chart chart, ChartClickListener clickListener) {
+    public EngineTemperatureBinder bind(@NonNull ChartValue chartValue, ChartClickListener clickListener) {
         mClickListener = clickListener;
-        mChartValue = chart;
+        mChartValue = chartValue;
         return this;
     }
 
     @Override
     public EngineTemperatureBinder into(@NonNull ChartViewHolder viewHolder) {
         mViewHolder = (EngineTempViewHolder) viewHolder;
-        mChart = mViewHolder.chart;
+        mBarChart = mViewHolder.chart;
         apply();
         return this;
     }
@@ -71,6 +67,7 @@ public class EngineTemperatureBinder implements ChartBinderInterface {
     public void apply() {
         configClicks();
         configBarChart();
+        mBarChart.setData(generateBarData(50, 13));
     }
 
     private void configClicks() {
@@ -81,20 +78,20 @@ public class EngineTemperatureBinder implements ChartBinderInterface {
 
     private void configBarChart() {
 
-        mChart.getDescription().setEnabled(false); // remove chart title on right bottom
+        mBarChart.getDescription().setEnabled(false); // remove chart title on right bottom
 
-        mChart.setDrawGridBackground(false); // remove gray background
-        mChart.setDrawBarShadow(false); // show only part which have content on bar
-        mChart.getLegend().setEnabled(false); // Remove chart legend below bars
-        mChart.setExtraTopOffset(0);
-        mChart.animateY(600);
+        mBarChart.setDrawGridBackground(false); // remove gray background
+        mBarChart.setDrawBarShadow(false); // show only part which have content on bar
+        mBarChart.getLegend().setEnabled(false); // Remove chart legend below bars
+        mBarChart.setExtraTopOffset(0);
+        mBarChart.animateY(600);
 
         // set a threshold line limit.
         LimitLine limitLine = new LimitLine(40f);
         limitLine.enableDashedLine(12f, 12f, 12f);
         limitLine.setLineColor(R.color.chart_limit_color);
 
-        final YAxis leftAxis = mChart.getAxisLeft();
+        final YAxis leftAxis = mBarChart.getAxisLeft();
         leftAxis.setAxisMinimum(0f);
         leftAxis.setTextColor(ContextCompat.getColor(mContext, R.color.text_color));
         leftAxis.setTextSize(10f);
@@ -104,9 +101,9 @@ public class EngineTemperatureBinder implements ChartBinderInterface {
         leftAxis.setValueFormatter(new TemperatureValueFormatter()); // Formatting the labels of Y
         leftAxis.setGranularity(20f); // settinhg the space betweens itens of Y
 
-        mChart.getAxisRight().setEnabled(false); // remove right labels
+        mBarChart.getAxisRight().setEnabled(false); // remove right labels
 
-        final XAxis xAxis = mChart.getXAxis();
+        final XAxis xAxis = mBarChart.getXAxis();
         xAxis.setTextColor(ContextCompat.getColor(mContext, R.color.chart_label));
         xAxis.setTextSize(10f);
         xAxis.setDrawGridLines(false); // remove grid
@@ -114,16 +111,17 @@ public class EngineTemperatureBinder implements ChartBinderInterface {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setGranularity(0f);
 
-        mChart.setData(generateBarData(50, 13));
+
     }
 
-    protected BarData generateBarData(float range, int count) {
+    private BarData generateBarData(float range, int count) {
 
         ArrayList<IBarDataSet> dataSet = new ArrayList<>();
         ArrayList<BarEntry> entries = new ArrayList<>();
 
-        for (int j = 1; j < count; j++) {
-            entries.add(new BarEntry(j, (float) (Math.random() * range) + range / 4));
+
+        for (ChartItem item : mChartValue.getItems()) {
+            entries.add(new BarEntry(item.getTime(), item.getValue()));
         }
 
         TemperatureBarDataSet barDataSet = new TemperatureBarDataSet(entries, "");

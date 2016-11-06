@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Bosch XDK</string>
+    <string name="app_name">MVP Sample</string>
 
-    <string name="chart_not_avaliable">Chart is not avaliable</string>
+    <string name="chart_not_avaliable">Chart is not available</string>
 
     <string name="chart_engine_temperature_title">Engine temperature (today)</string>
     <string name="chart_engine_temperature_symbol">ºC</string>

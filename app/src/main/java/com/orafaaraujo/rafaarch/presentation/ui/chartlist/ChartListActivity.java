@@ -1,4 +1,4 @@
-package com.orafaaraujo.rafaarch.presentation.main;
+package com.orafaaraujo.rafaarch.presentation.ui.chartlist;
 
 
 import android.content.Intent;
@@ -11,33 +11,30 @@ import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
 import com.orafaaraujo.rafaarch.R;
-import com.orafaaraujo.rafaarch.entity.chart.Chart;
-import com.orafaaraujo.rafaarch.presentation.chart.ChartActivity;
-import com.orafaaraujo.rafaarch.presentation.main.adapter.ChartAdapter;
+import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.presentation.ui.chart.ChartActivity;
+import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.ChartAdapter;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements MainView {
-
-    @BindView(R.id.main_recycler_View)
-    RecyclerView mRecyclerView;
-
-    @BindView(R.id.main_progress)
-    ProgressBar mProgressBar;
-
-    private MainPresenter mPresenter;
+public class ChartListActivity extends AppCompatActivity implements ChartListView {
 
     public static final String CHART_KEY = "CHART_KEY";
+    @BindView(R.id.chartlist_recycler_View)
+    RecyclerView mRecyclerView;
+    @BindView(R.id.chartlist_progress)
+    ProgressBar mProgressBar;
+    private ChartListPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_chartlist);
         ButterKnife.bind(this);
-        mPresenter = new MainPresenterImpl(this, new FetchChartsInteractorImpl());
+        mPresenter = new ChartListPresenterImpl(this, new FetchChartsInteractorImpl());
     }
 
     @Override
@@ -65,11 +62,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void setupRecyclerView(List<Chart> charts) {
+    public void setupRecyclerView(List<ChartValue> chartValues) {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(new ChartAdapter(this, charts, chart -> {
+        mRecyclerView.setAdapter(new ChartAdapter(this, chartValues, chart -> {
 
-            Intent intent = new Intent(MainActivity.this, ChartActivity.class);
+            Intent intent = new Intent(ChartListActivity.this, ChartActivity.class);
             intent.putExtra(CHART_KEY, new Gson().toJson(chart));
             startActivity(intent);
 

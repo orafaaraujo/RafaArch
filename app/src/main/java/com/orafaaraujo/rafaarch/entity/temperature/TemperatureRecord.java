@@ -1,15 +1,15 @@
-package com.orafaaraujo.rafaarch.entity.chart;
+package com.orafaaraujo.rafaarch.entity.temperature;
 
 /**
  * Created by rafael on 06/11/16.
  */
 
-public class ChartItem {
+public class TemperatureRecord {
 
     private final long mTime;
     private final int mValue;
 
-    public ChartItem(long time, int value) {
+    public TemperatureRecord(long time, int value) {
         mTime = time;
         mValue = value;
     }
@@ -21,4 +21,5 @@ public class ChartItem {
     public int getValue() {
         return mValue;
     }
+
 }

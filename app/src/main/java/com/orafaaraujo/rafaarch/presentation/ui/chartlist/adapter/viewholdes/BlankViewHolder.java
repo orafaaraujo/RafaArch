@@ -1,4 +1,4 @@
-package com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes;
+package com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.viewholdes;
 
 import android.view.View;
 import android.widget.TextView;

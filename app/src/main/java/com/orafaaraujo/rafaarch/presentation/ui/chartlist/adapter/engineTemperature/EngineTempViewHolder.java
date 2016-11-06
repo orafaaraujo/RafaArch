@@ -1,11 +1,11 @@
-package com.orafaaraujo.rafaarch.presentation.main.adapter.EngineTemperature;
+package com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.engineTemperature;
 
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.orafaaraujo.rafaarch.R;
-import com.orafaaraujo.rafaarch.presentation.main.adapter.viewholdes.ChartViewHolder;
+import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.viewholdes.ChartViewHolder;
 
 import butterknife.BindView;
 
