@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F44336</color>
-    <color name="colorPrimaryDark">#D32F2F</color>
-    <color name="colorAccent">#448AFF</color>
+    <color name="colorPrimary">#73C559</color>
+    <color name="colorPrimaryDark">#51A736</color>
+    <color name="colorAccent">#808183</color>
+
+    <color name="chartlist_header_start">#E8F0D2</color>
+    <color name="chartlist_header_end">#CCFFBC</color>
 
     <color name="text_color">#A5A5A5</color>
     <color name="icon_vector_color">#FFA5A5A5</color>
