@@ -1,4 +1,4 @@
-package com.orafaaraujo.rafaarch.entity.chart;
+package com.orafaaraujo.rafaarch.model.chart;
 
 /**
  * Created by rafael on 01/11/16.

@@ -1,13 +1,18 @@
-package com.orafaaraujo.rafaarch.entity.temperature;
+package com.orafaaraujo.rafaarch.model.temperature;
+
+import io.realm.RealmObject;
 
 /**
  * Created by rafael on 06/11/16.
  */
 
-public class TemperatureRecord {
+public class TemperatureRecord extends RealmObject {
 
-    private final long mTime;
-    private final int mValue;
+    private long mTime;
+    private int mValue;
+
+    public TemperatureRecord() {
+    }
 
     public TemperatureRecord(long time, int value) {
         mTime = time;

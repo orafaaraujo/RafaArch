@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.jakewharton.rxbinding.view.RxView;
-import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.model.chart.ChartValue;
 import com.orafaaraujo.rafaarch.presentation.helper.temperature.TemperatureChartMaker;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.ChartClickListener;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.binds.ChartBinderInterface;

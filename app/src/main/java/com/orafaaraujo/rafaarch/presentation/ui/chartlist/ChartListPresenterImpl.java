@@ -1,22 +1,29 @@
 package com.orafaaraujo.rafaarch.presentation.ui.chartlist;
 
 
-import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.repository.DatabaseRealm;
 
-import java.util.List;
+import javax.inject.Inject;
 
 /**
  * Created by rafael on 01/11/16.
  */
 
-public class ChartListPresenterImpl implements ChartListPresenter, FetchChartsInteractor.OnFinishedListener {
+public class ChartListPresenterImpl implements ChartListPresenter {
 
+    private DatabaseRealm mRealm;
     private ChartListView mChartListView;
     private FetchChartsInteractor mFetchChartsInteractor;
 
-    public ChartListPresenterImpl(ChartListView chartListView, FetchChartsInteractor FetchChartsInteractor) {
+    @Inject
+    public ChartListPresenterImpl(DatabaseRealm realm) {
+        mFetchChartsInteractor = new FetchChartsInteractorImpl();
+        mRealm = realm;
+    }
+
+    @Override
+    public void setView(ChartListView chartListView) {
         mChartListView = chartListView;
-        mFetchChartsInteractor = FetchChartsInteractor;
     }
 
     @Override
@@ -24,19 +31,14 @@ public class ChartListPresenterImpl implements ChartListPresenter, FetchChartsIn
         if (mChartListView != null) {
             mChartListView.showProgress();
         }
-        mFetchChartsInteractor.fetchChart(this);
+        mFetchChartsInteractor.fetchChart(mRealm, chartValues -> {
+            mChartListView.hideProgress();
+            mChartListView.setupRecyclerView(chartValues);
+        });
     }
 
     @Override
     public void onDestroy() {
         mChartListView = null;
-    }
-
-    @Override
-    public void onFinished(List<ChartValue> chartValues) {
-        if (mChartListView != null) {
-            mChartListView.hideProgress();
-            mChartListView.setupRecyclerView(chartValues);
-        }
     }
 }

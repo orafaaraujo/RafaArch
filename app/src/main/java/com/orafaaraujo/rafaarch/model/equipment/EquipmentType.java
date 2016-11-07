@@ -1,4 +1,4 @@
-package com.orafaaraujo.rafaarch.entity.equipment;
+package com.orafaaraujo.rafaarch.model.equipment;
 
 /**
  * Created by rafael on 06/11/16.

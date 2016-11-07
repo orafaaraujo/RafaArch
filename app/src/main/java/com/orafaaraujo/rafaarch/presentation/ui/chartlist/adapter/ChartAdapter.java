@@ -4,8 +4,8 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.orafaaraujo.rafaarch.entity.chart.ChartType;
-import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.model.chart.ChartType;
+import com.orafaaraujo.rafaarch.model.chart.ChartValue;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.viewholdes.ChartViewHolder;
 
 import java.util.List;

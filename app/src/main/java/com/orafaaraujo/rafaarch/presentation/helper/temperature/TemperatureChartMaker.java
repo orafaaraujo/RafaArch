@@ -12,8 +12,8 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.orafaaraujo.rafaarch.R;
-import com.orafaaraujo.rafaarch.entity.chart.ChartItem;
-import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.model.chart.ChartItem;
+import com.orafaaraujo.rafaarch.model.chart.ChartValue;
 
 import java.util.ArrayList;
 

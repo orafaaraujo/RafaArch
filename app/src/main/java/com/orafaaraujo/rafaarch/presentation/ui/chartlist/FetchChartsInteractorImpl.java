@@ -3,12 +3,13 @@ package com.orafaaraujo.rafaarch.presentation.ui.chartlist;
 
 import android.os.Handler;
 
-import com.orafaaraujo.rafaarch.entity.chart.ChartItem;
-import com.orafaaraujo.rafaarch.entity.chart.ChartType;
-import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
-import com.orafaaraujo.rafaarch.entity.equipment.Equipment;
-import com.orafaaraujo.rafaarch.entity.equipment.EquipmentType;
-import com.orafaaraujo.rafaarch.entity.temperature.TemperatureRecord;
+import com.orafaaraujo.rafaarch.model.chart.ChartItem;
+import com.orafaaraujo.rafaarch.model.chart.ChartType;
+import com.orafaaraujo.rafaarch.model.chart.ChartValue;
+import com.orafaaraujo.rafaarch.model.equipment.Equipment;
+import com.orafaaraujo.rafaarch.model.equipment.EquipmentType;
+import com.orafaaraujo.rafaarch.model.temperature.TemperatureRecord;
+import com.orafaaraujo.rafaarch.repository.DatabaseRealm;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +22,10 @@ import java.util.Random;
 public class FetchChartsInteractorImpl implements FetchChartsInteractor {
 
     @Override
-    public void fetchChart(final OnFinishedListener listener) {
+    public void fetchChart(DatabaseRealm realm, final OnFinishedListener listener) {
 
-        // To emulate a loading.
+
+        
         new Handler().postDelayed(() -> listener.onFinished(createArrayList()), 500);
     }
 

@@ -1,7 +1,8 @@
 package com.orafaaraujo.rafaarch.presentation.ui.chartlist;
 
 
-import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.model.chart.ChartValue;
+import com.orafaaraujo.rafaarch.repository.DatabaseRealm;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 public interface FetchChartsInteractor {
 
-    void fetchChart(OnFinishedListener listener);
+    void fetchChart(DatabaseRealm realm, OnFinishedListener listener);
 
     interface OnFinishedListener {
         void onFinished(List<ChartValue> chartValues);

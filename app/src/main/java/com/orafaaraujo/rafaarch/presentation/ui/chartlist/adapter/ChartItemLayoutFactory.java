@@ -4,7 +4,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.orafaaraujo.rafaarch.R;
-import com.orafaaraujo.rafaarch.entity.chart.ChartType;
+import com.orafaaraujo.rafaarch.model.chart.ChartType;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.engineTemperature.EngineTempViewHolder;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.viewholdes.BlankViewHolder;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.viewholdes.ChartViewHolder;

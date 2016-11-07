@@ -6,6 +6,8 @@ package com.orafaaraujo.rafaarch.presentation.ui.chartlist;
 
 public interface ChartListPresenter {
 
+    void setView(ChartListView chartListView);
+
     void onResume();
 
     void onDestroy();

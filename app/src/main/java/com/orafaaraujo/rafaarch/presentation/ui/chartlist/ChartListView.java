@@ -1,6 +1,6 @@
 package com.orafaaraujo.rafaarch.presentation.ui.chartlist;
 
-import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.model.chart.ChartValue;
 
 import java.util.List;
 

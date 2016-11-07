@@ -2,7 +2,7 @@ package com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter;
 
 import android.content.Context;
 
-import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.model.chart.ChartValue;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.engineTemperature.EngineTemperatureBinder;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.viewholdes.ChartViewHolder;
 

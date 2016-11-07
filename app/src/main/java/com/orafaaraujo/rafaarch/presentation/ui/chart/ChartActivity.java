@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.github.mikephil.charting.charts.BarChart;
 import com.google.gson.Gson;
 import com.orafaaraujo.rafaarch.R;
-import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.model.chart.ChartValue;
 import com.orafaaraujo.rafaarch.presentation.helper.temperature.TemperatureChartMaker;
 
 import butterknife.BindView;

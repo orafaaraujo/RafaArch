@@ -11,11 +11,14 @@ import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
 import com.orafaaraujo.rafaarch.R;
-import com.orafaaraujo.rafaarch.entity.chart.ChartValue;
+import com.orafaaraujo.rafaarch.component.Injector;
+import com.orafaaraujo.rafaarch.model.chart.ChartValue;
 import com.orafaaraujo.rafaarch.presentation.ui.chart.ChartActivity;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.ChartAdapter;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,14 +33,16 @@ public class ChartListActivity extends AppCompatActivity implements ChartListVie
     @BindView(R.id.chartlist_progress)
     ProgressBar mProgressBar;
 
-    private ChartListPresenter mPresenter;
+    @Inject
+    ChartListPresenterImpl mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chartlist);
+        Injector.getApplicationComponent().inject(this);
         ButterKnife.bind(this);
-        mPresenter = new ChartListPresenterImpl(this, new FetchChartsInteractorImpl());
+        mPresenter.setView(this);
     }
 
     @Override
