@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/chart_engine_temperature_icon"
-                android:layout_marginTop="16dp"
+                android:paddingTop="16dp"
                 android:text="@string/chart_engine_temperature_symbol" />
 
             <com.github.mikephil.charting.charts.BarChart

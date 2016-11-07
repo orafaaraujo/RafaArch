@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.orafaaraujo.rafaarch">
+          package="com.orafaaraujo.rafaarch">
 
     <application
         android:allowBackup="true"
@@ -13,14 +13,14 @@
             android:screenOrientation="sensorPortrait"
             android:theme="@style/MainTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".presentation.ui.chart.ChartActivity"
-            android:screenOrientation="sensorLandscape" />
+            android:screenOrientation="sensorLandscape"/>
     </application>
 
 </manifest>

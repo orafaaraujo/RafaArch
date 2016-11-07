@@ -23,10 +23,13 @@ import butterknife.ButterKnife;
 public class ChartListActivity extends AppCompatActivity implements ChartListView {
 
     public static final String CHART_KEY = "CHART_KEY";
+
     @BindView(R.id.chartlist_recycler_View)
     RecyclerView mRecyclerView;
+
     @BindView(R.id.chartlist_progress)
     ProgressBar mProgressBar;
+
     private ChartListPresenter mPresenter;
 
     @Override

@@ -16,5 +16,4 @@ public interface ChartBinderInterface {
 
     ChartBinderInterface into(@NonNull ChartViewHolder viewHolder);
 
-    void apply();
 }
