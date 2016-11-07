@@ -14,14 +14,19 @@ import io.realm.RealmObject;
 public class Equipment extends RealmObject {
 
     private String mName;
+
     private String mEquipmentType;
+
     private RealmList<TemperatureRecord> temperatureRecords = new RealmList<>();
 
     public Equipment() {
     }
 
-    public Equipment(String name, EquipmentType equipmentType) {
+    public void setName(String name) {
         mName = name;
+    }
+
+    public void setEquipmentType(EquipmentType equipmentType) {
         mEquipmentType = equipmentType.toString();
     }
 

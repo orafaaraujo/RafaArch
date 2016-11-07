@@ -39,6 +39,7 @@ public class ChartListPresenterImpl implements ChartListPresenter {
 
     @Override
     public void onDestroy() {
+        mRealm.close();
         mChartListView = null;
     }
 }

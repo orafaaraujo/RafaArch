@@ -31,7 +31,6 @@ public class ChartActivity extends AppCompatActivity {
 
         getChartValue();
         configChart();
-
     }
 
     private void getChartValue() {

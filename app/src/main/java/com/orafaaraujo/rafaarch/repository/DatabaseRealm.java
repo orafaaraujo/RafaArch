@@ -41,12 +41,9 @@ public class DatabaseRealm {
         return Realm.getDefaultInstance();
     }
 
-    public <T extends RealmObject> T add(T model) {
+    public void add(RealmObject model) {
         Realm realm = getRealmInstance();
-        realm.beginTransaction();
-        realm.copyToRealm(model);
-        realm.commitTransaction();
-        return model;
+        realm.executeTransaction(realm1 -> realm.copyToRealm(model));
     }
 
     public <T extends RealmObject> Observable<RealmResults<T>> findAll(Class<T> clazz) {
