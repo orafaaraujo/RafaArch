@@ -1,6 +1,8 @@
 package com.orafaaraujo.rafaarch.model.equipment;
 
+import com.orafaaraujo.rafaarch.model.oscillation.OscillationRecord;
 import com.orafaaraujo.rafaarch.model.temperature.TemperatureRecord;
+import com.orafaaraujo.rafaarch.model.usage.UsageRecord;
 
 import java.util.List;
 
@@ -18,6 +20,8 @@ public class Equipment extends RealmObject {
     private String mEquipmentType;
 
     private RealmList<TemperatureRecord> temperatureRecords = new RealmList<>();
+    private RealmList<UsageRecord> usageRecords = new RealmList<>();
+    private RealmList<OscillationRecord> oscillationRecords = new RealmList<>();
 
     public Equipment() {
     }
@@ -40,5 +44,13 @@ public class Equipment extends RealmObject {
 
     public List<TemperatureRecord> getTemperatureRecords() {
         return temperatureRecords;
+    }
+
+    public RealmList<UsageRecord> getUsageRecords() {
+        return usageRecords;
+    }
+
+    public RealmList<OscillationRecord> getOscillationRecords() {
+        return oscillationRecords;
     }
 }
