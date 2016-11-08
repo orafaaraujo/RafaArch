@@ -5,6 +5,7 @@ import com.orafaaraujo.rafaarch.component.module.ApplicationContextModule;
 import com.orafaaraujo.rafaarch.component.module.RepositoryModule;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.ChartListActivity;
 import com.orafaaraujo.rafaarch.repository.DatabaseRealm;
+import com.orafaaraujo.rafaarch.repository.EquipmentDatabase;
 
 import javax.inject.Singleton;
 
@@ -23,5 +24,7 @@ public interface ApplicationComponent {
     void inject(ChartListActivity activity);
 
     void inject(DatabaseRealm databaseRealm);
+
+    void inject(EquipmentDatabase equipmentDatabase);
 
 }

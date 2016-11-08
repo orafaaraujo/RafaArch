@@ -1,6 +1,7 @@
 package com.orafaaraujo.rafaarch.component.module;
 
 import com.orafaaraujo.rafaarch.repository.DatabaseRealm;
+import com.orafaaraujo.rafaarch.repository.EquipmentDatabase;
 
 import javax.inject.Singleton;
 
@@ -17,5 +18,11 @@ public class RepositoryModule {
     @Singleton
     public DatabaseRealm provideDatabaseRealm() {
         return new DatabaseRealm();
+    }
+
+    @Provides
+    @Singleton
+    public EquipmentDatabase provideDatabaseData() {
+        return new EquipmentDatabase();
     }
 }

@@ -43,7 +43,7 @@ public class DatabaseRealm {
 
     public void add(RealmObject model) {
         Realm realm = getRealmInstance();
-        realm.executeTransaction(realm1 -> realm.copyToRealm(model));
+        realm.executeTransaction(realm1 -> realm.copyToRealmOrUpdate(model));
     }
 
     public <T extends RealmObject> Observable<RealmResults<T>> findAll(Class<T> clazz) {

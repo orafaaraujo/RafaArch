@@ -3,12 +3,8 @@ package com.orafaaraujo.rafaarch;
 import android.app.Application;
 
 import com.orafaaraujo.rafaarch.component.Injector;
-import com.orafaaraujo.rafaarch.model.equipment.Equipment;
-import com.orafaaraujo.rafaarch.model.equipment.EquipmentType;
-import com.orafaaraujo.rafaarch.model.temperature.TemperatureRecord;
 import com.orafaaraujo.rafaarch.repository.DatabaseRealm;
-
-import java.util.Random;
+import com.orafaaraujo.rafaarch.repository.EquipmentDatabase;
 
 import javax.inject.Inject;
 
@@ -19,7 +15,10 @@ import javax.inject.Inject;
 public class RafaArchApplication extends Application {
 
     @Inject
-    DatabaseRealm databaseRealm;
+    DatabaseRealm mDatabaseRealm;
+
+    @Inject
+    EquipmentDatabase mEquipmentDatabase;
 
     @Override
     public void onCreate() {
@@ -34,18 +33,7 @@ public class RafaArchApplication extends Application {
     }
 
     protected void initRealm() {
-        databaseRealm.setup();
-
-        Equipment equipment = new Equipment();
-        equipment.setName("Treadmill 1");
-        equipment.setEquipmentType(EquipmentType.TREADMILL);
-
-        final Random random = new Random();
-        for (int i = 7; i < 25; i++) {
-            equipment.getTemperatureRecords().add(new TemperatureRecord(i, random.nextInt(45)));
-        }
-
-
-//        databaseRealm.add(equipment);
+        mDatabaseRealm.setup();
+        mEquipmentDatabase.createData();
     }
 }
