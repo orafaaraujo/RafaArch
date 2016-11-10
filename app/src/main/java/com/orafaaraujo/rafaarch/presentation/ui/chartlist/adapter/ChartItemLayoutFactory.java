@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import com.orafaaraujo.rafaarch.R;
 import com.orafaaraujo.rafaarch.model.chart.ChartType;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.engineTemperature.EngineTempViewHolder;
+import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.usage.UsageReportViewHolder;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.viewholdes.BlankViewHolder;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.viewholdes.ChartViewHolder;
 
@@ -29,8 +30,8 @@ class ChartItemLayoutFactory {
                         .inflate(R.layout.chart_item, parent, false));
                 break;
             case USAGE_REPORT:
-                chartViewHolder = new BlankViewHolder(LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.chart_item, parent, false));
+                chartViewHolder = new UsageReportViewHolder(LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.chart_item_usage_report, parent, false));
                 break;
             case ENIGINE_TEMPERATURE:
                 chartViewHolder = new EngineTempViewHolder(LayoutInflater.from(parent.getContext())

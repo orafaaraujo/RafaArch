@@ -5,4 +5,7 @@
 
     <string name="chart_engine_temperature_title">Engine temperature (today)</string>
     <string name="chart_engine_temperature_symbol">ºC</string>
+
+    <string name="chart_engine_usage_title">Usage report (today)</string>
+    <string name="chart_engine_usage_symbol">hours</string>
 </resources>

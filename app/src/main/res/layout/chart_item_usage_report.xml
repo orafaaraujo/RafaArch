@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_gravity="center"
+        android:layout_margin="12dp"
+        card_view:cardCornerRadius="4dp"
+        card_view:contentPadding="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/chart_engine_usage_icon"
+                style="@style/chart_item_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/ic_flare_black_24dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/chart_engine_usage_title"
+                style="@style/chart_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/chart_engine_usage_icon"
+                android:layout_alignTop="@id/chart_engine_usage_icon"
+                android:layout_toEndOf="@id/chart_engine_usage_icon"
+                android:layout_toStartOf="@+id/chart_engine_usage_out_button"
+                android:text="@string/chart_engine_usage_title"
+                tools:ignore="RtlSymmetry" />
+
+            <ImageButton
+                android:id="@id/chart_engine_usage_out_button"
+                style="@style/chart_item_out_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/chart_engine_usage_icon"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/chart_engine_usage_icon"
+                android:src="@drawable/ic_chart_item_out"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/chart_engine_usage_symbol"
+                style="@style/chart_item_symbol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/chart_engine_usage_icon"
+                android:paddingTop="16dp"
+                android:text="@string/chart_engine_usage_symbol" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/chart_engine_usage_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/chart_engine_usage_symbol" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

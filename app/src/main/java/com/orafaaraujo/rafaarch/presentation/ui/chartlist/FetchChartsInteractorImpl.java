@@ -39,7 +39,7 @@ public class FetchChartsInteractorImpl implements FetchChartsInteractor {
                             equipments.get(0).getTemperatureRecords().stream().forEach(tr -> {
                                 temperatureItems.add(new ChartItem(tr.getTime(), tr.getValue()));
                             });
-                            chartValues.add(new ChartValue(ChartType.ENIGINE_TEMPERATURE, temperatureItems));
+                            chartValues.add(new ChartValue(ChartType.USAGE_REPORT, temperatureItems));
                             listener.onFinished(chartValues);
                         },
                         throwable -> {
