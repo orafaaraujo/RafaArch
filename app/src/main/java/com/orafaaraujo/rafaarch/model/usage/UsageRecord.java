@@ -14,20 +14,15 @@ public class UsageRecord extends RealmObject {
 
     private int mValue;
 
+    private int mAverage;
+
     public UsageRecord() {
     }
 
-    public UsageRecord(long time, int value) {
+    public UsageRecord(long time, int value, int average) {
         mTime = time;
         mValue = value;
-    }
-
-    public void setTime(long time) {
-        mTime = time;
-    }
-
-    public void setValue(int value) {
-        mValue = value;
+        mAverage = average;
     }
 
     public long getTime() {
@@ -36,5 +31,9 @@ public class UsageRecord extends RealmObject {
 
     public int getValue() {
         return mValue;
+    }
+
+    public int getAverage() {
+        return mAverage;
     }
 }

@@ -13,4 +13,7 @@
     <color name="chart_limit_color">#4A4A4A</color>
     <color name="chart_label">#74C559</color>
 
+    <color name="chart_usage_month_avg_line">#4A4A4A</color>
+    <color name="chart_usage_line">#74C559</color>
+
 </resources>

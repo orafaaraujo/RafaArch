@@ -3,7 +3,7 @@ package com.orafaaraujo.rafaarch.repository;
 import com.orafaaraujo.rafaarch.component.Injector;
 import com.orafaaraujo.rafaarch.model.equipment.Equipment;
 import com.orafaaraujo.rafaarch.model.equipment.EquipmentType;
-import com.orafaaraujo.rafaarch.model.temperature.TemperatureRecord;
+import com.orafaaraujo.rafaarch.model.usage.UsageRecord;
 
 import java.util.Random;
 
@@ -27,7 +27,7 @@ public class EquipmentDatabase {
         Equipment equipment = new Equipment(1, "Treadmill 1", EquipmentType.TREADMILL);
         final Random random = new Random();
         for (int i = 0; i < 35; i++) {
-            equipment.getTemperatureRecords().add(new TemperatureRecord(i, random.nextInt(55)));
+            equipment.getUsageRecords().add(new UsageRecord(i, random.nextInt(6-2) + 2, random.nextInt(6-2) + 2));
         }
 
         mDatabaseRealm.add(equipment);

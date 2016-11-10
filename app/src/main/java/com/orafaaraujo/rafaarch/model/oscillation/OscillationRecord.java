@@ -22,17 +22,10 @@ public class OscillationRecord extends RealmObject {
         mValue = value;
     }
 
-    public void setTime(long time) {
-        mTime = time;
-    }
-
     public void setValue(int value) {
         mValue = value;
     }
 
-    public long getTime() {
-        return mTime;
-    }
 
     public int getValue() {
         return mValue;

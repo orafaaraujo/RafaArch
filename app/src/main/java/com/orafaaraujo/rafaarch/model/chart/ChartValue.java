@@ -12,9 +12,12 @@ public class ChartValue {
 
     private final List<ChartItem> mItems;
 
-    public ChartValue(ChartType type, List<ChartItem> items) {
+    private final List<ChartItem> mAverageItems;
+
+    public ChartValue(ChartType type, List<ChartItem> items, List<ChartItem> averageItems) {
         mType = type;
         mItems = items;
+        mAverageItems = averageItems;
     }
 
     public ChartType getType() {
@@ -23,5 +26,9 @@ public class ChartValue {
 
     public List<ChartItem> getItems() {
         return mItems;
+    }
+
+    public List<ChartItem> getAverageItems() {
+        return mAverageItems;
     }
 }

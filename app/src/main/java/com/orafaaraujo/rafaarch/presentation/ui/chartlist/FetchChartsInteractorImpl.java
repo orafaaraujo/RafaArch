@@ -35,11 +35,13 @@ public class FetchChartsInteractorImpl implements FetchChartsInteractor {
         realm.findAll(Equipment.class)
                 .subscribe(equipments -> {
                             final List<ChartValue> chartValues = new ArrayList<>(1);
-                            final List<ChartItem> temperatureItems = new ArrayList<>(equipments.get(0).getTemperatureRecords().size());
-                            equipments.get(0).getTemperatureRecords().stream().forEach(tr -> {
-                                temperatureItems.add(new ChartItem(tr.getTime(), tr.getValue()));
+                            final List<ChartItem> usageReport = new ArrayList<>(equipments.get(0).getUsageRecords().size());
+                            final List<ChartItem> averageReport = new ArrayList<>(equipments.get(0).getUsageRecords().size());
+                            equipments.get(0).getUsageRecords().stream().forEach(tr -> {
+                                usageReport.add(new ChartItem(tr.getTime(), tr.getValue()));
+                                averageReport.add(new ChartItem(tr.getTime(), tr.getAverage()));
                             });
-                            chartValues.add(new ChartValue(ChartType.USAGE_REPORT, temperatureItems));
+                            chartValues.add(new ChartValue(ChartType.USAGE_REPORT, usageReport, averageReport));
                             listener.onFinished(chartValues);
                         },
                         throwable -> {

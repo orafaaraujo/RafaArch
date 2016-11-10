@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.jakewharton.rxbinding.view.RxView;
 import com.orafaaraujo.rafaarch.model.chart.ChartValue;
-import com.orafaaraujo.rafaarch.presentation.helper.temperature.TemperatureChartMaker;
+import com.orafaaraujo.rafaarch.presentation.helper.usage.UsageChartMaker;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.ChartClickListener;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.binds.ChartBinderInterface;
 import com.orafaaraujo.rafaarch.presentation.ui.chartlist.adapter.viewholdes.ChartViewHolder;
@@ -49,7 +49,7 @@ public class UsageReportBinder implements ChartBinderInterface {
 
     public void apply() {
         configClicks();
-        TemperatureChartMaker.make(mContext, mViewHolder.chart, mChartValue);
+        UsageChartMaker.make(mContext, mViewHolder.chart, mChartValue);
     }
 
     private void configClicks() {
